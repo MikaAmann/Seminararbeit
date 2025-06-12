@@ -1,0 +1,8 @@
+{
+  "properties": "../properties/termination.prp",
+  "expected_verdict": "false",
+  "cpachecker_verdict": "true",
+  "llm_verdict": "true",
+  "repo_ URL": "https://gitlab.com/sosy-lab/benchmarking/sv-benchmarks/-/blob/main/c/termination-nla/dijkstra1-both-nt-2.c?ref_type=heads",
+  "notes": "After SV-Comp 24 CPAchecker returns the correct verdict 'false'"
+}
