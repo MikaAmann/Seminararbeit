@@ -1,0 +1,8 @@
+{
+  "Topic": "EvenOddWithOverflowBug",
+  "properties": "../properties/no-overflow.prp",
+  "expected_verdict": "false",
+  "cpachecker_verdict": "false",
+  "llm_verdict": "false",
+  "notes": ""
+}

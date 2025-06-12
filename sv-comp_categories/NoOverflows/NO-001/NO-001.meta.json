@@ -1,0 +1,8 @@
+{
+  "Topic": "Recursive Fibonnaci",
+ "properties": "../properties/no-overflow.prp",
+  "expected_verdict": "true",
+  "cpachecker_verdict": "true",
+  "llm_verdict": "true",
+  "notes": ""
+}
