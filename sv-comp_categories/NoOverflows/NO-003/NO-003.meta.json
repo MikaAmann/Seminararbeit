@@ -1,0 +1,8 @@
+{
+  "Topic": "Ackermann function",
+  "properties": "../properties/no-overflow.prp",
+  "expected_verdict": "true",
+  "cpachecker_verdict": "TIMEOUT",
+  "llm_verdict": "true",
+  "notes": ""
+}

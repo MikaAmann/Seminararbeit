@@ -1,0 +1,8 @@
+{
+  "Topic": "Array tiling",
+  "properties": "../properties/no-overflow.prp",
+  "expected_verdict": "true",
+  "cpachecker_verdict": "true (unconfirmed)",
+  "llm_verdict": "false",
+  "notes": "CPA had correct verdict but had no / a flawed Witness. Thus it couldnt proove that its verdict is correct"
+}

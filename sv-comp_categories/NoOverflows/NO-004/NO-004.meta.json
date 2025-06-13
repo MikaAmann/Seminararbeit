@@ -1,0 +1,8 @@
+{
+  "Topic": "Recursive implementation integer addition",
+  "properties": "../properties/no-overflow.prp",
+  "expected_verdict": "false",
+  "cpachecker_verdict": "TIMEOUT",
+  "llm_verdict": "false",
+  "notes": "LLM didnt initially respond with an overflow error and had to be asked if there are any other types ofpossible errors"
+}

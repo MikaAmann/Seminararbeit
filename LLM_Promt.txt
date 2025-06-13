@@ -1,0 +1,11 @@
+Analysiere den folgenden Code auf formale, semantische oder sicherheitsrelevante Fehler. Gib ein Verdict zurück:
+TRUE, wenn der Code fehlerfrei ist
+FALSE, wenn du einen oder mehrere Fehler erkennst
+UNKNOWN, wenn du dir unsicher bist oder nur spekulierst
+Halte deine Antwort exakt in diesem Format und bleibe kurz.
+
+
+| Situation                 | Tool sagt „Fehler“   | Tool sagt „kein Fehler“ |
+| ------------------------- | -------------------- | ----------------------- |
+| **Fehler ist da**         | ✅ korrekt            | ❌ **False Negative**    |
+| **Kein Fehler vorhanden** | ❌ **False Positive** | ✅ korrekt               |
