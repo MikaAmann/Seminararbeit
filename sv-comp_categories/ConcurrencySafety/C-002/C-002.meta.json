@@ -1,0 +1,8 @@
+{
+  "Topic": "Read/Write Lock",
+  "properties": "../properties/unreach-call.prp",
+  "expected_verdict": "true",
+  "cpachecker_verdict": "false",
+  "llm_verdict": "false",
+  "notes": ""
+}

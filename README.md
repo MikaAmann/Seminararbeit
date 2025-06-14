@@ -8,6 +8,7 @@
 | NO-003 | No Overflow   | Ackermann function|true     | timeout     | true       | ❌           | ✅          | - / - |
 | NO-004 | No Overflow   | Recursive integer addition |false     | timeout     | false    | ❌           | ✅          | - / - |
 | NO-005 | No Overflow   | Array tiling |true     | true (unconfirmed)     | false       | (✅)          |  ❌         | - / FP|
+| NO-006 | No Overflow   | Signed Integer Overflow |false     | false     | false       | ✅          | ✅          | - / - |
 
 
 
