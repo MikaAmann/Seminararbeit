@@ -1,0 +1,8 @@
+{
+  "Topic": "Heap memory safety",
+  "properties": "../properties/valid-memsafety.prp",
+  "expected_verdict": "true",
+  "cpachecker_verdict": "false",
+  "llm_verdict": "false",
+  "notes": ""
+}

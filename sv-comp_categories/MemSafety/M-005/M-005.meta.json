@@ -1,0 +1,8 @@
+{
+  "Topic": "Linked List memory safety",
+  "properties": "../properties/valid-memsafety.prp",
+  "expected_verdict": "true",
+  "cpachecker_verdict": "true",
+  "llm_verdict": "false",
+  "notes": ""
+}

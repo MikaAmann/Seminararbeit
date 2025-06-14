@@ -5,7 +5,3 @@ UNKNOWN, wenn du dir unsicher bist oder nur spekulierst
 Halte deine Antwort exakt in diesem Format und bleibe bei der Begründung deinses Verdicts kurz.
 
 
-| Situation                 | Tool sagt „Fehler“   | Tool sagt „kein Fehler“ |
-| ------------------------- | -------------------- | ----------------------- |
-| **Fehler ist da**         | ✅ korrekt            | ❌ **False Negative**    |
-| **Kein Fehler vorhanden** | ❌ **False Positive** | ✅ korrekt               |

@@ -1,5 +1,5 @@
 {
-  "Topic": "Thread int overflow",
+  "Topic": "Thread Integer Overflow",
   "properties": "../properties/no-overflow.prp",
   "expected_verdict": "false",
   "cpachecker_verdict": "false",
