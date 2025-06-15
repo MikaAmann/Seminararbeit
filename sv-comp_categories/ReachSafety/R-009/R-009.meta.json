@@ -1,0 +1,8 @@
+{
+  "Topic": "Hardness",
+  "properties": "../properties/unreach-call.prp",
+  "expected_verdict": "true",
+  "cpachecker_verdict": "true",
+  "llm_verdict": "false",
+  "notes": ""
+}

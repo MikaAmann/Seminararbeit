@@ -21,7 +21,23 @@
 | M-006 | Memory Safety   | Linked List |false     |false     | false       | ✅          | ✅          | - / - |
 | M-007 | Memory Safety   | Memory Cleanup |false     |false     | false       | ✅         | ✅          | - / - |
 | M-008 | Memory Safety   | Memory Cleanup |true     |true     | false       | ✅         | ❌          | - / FP |
-
+| T-001 | Termination   | Bit Vectors |false     |false     | false       | ✅         | ✅          | - / - |
+| T-002 | Termination   | Reverse Bits | true     |true     | false       | ✅         | ❌         | - / FP |
+| T-003 | Termination   | Dijkstra Algorithm | false     |true     | false       | ❌         | ✅        | FN / - |
+| T-004 | Termination   | Regression | true     |true     | false       | ✅         | ❌         | - / FP |
+| T-005 | Termination   | Termination | true     |true     | false       | ✅         | ❌         | - / FP |
+| T-006 | Termination   | Locks | false     |false     | false       | ✅         | ✅         | - / - |
+| T-007 | Termination   | Loops | true     |false     | false       | ❌         | ❌         | FP / FP |
+| T-008 | Termination   | Pointer Validation | true     |true     | true       | ✅         | ✅         | - / - |
+| R-001 | Reach Safety   | Array bubblesort | false     | timeout     | false       | ❌         | ✅         | - / - |
+| R-002 | Reach Safety   | Array increment | true     | true     | true       | ✅         | ✅         | - / - |
+| R-003 | Reach Safety   | Loop invert String | false     | false     | false       | ✅         | ✅         | - / - |
+| R-004 | Reach Safety   | Duplicates | true     | false     | true       | ❌        | ✅         | FP / - |
+| R-005 | Reach Safety   | Recursive GCD | true     | true     | false       | ✅        | ❌         | - / FP |
+| R-006 | Reach Safety   | Recursive Fibonacci | false     | false     | false       | ✅        | ✅         | - / - |
+| R-007 | Reach Safety   | Hardness| true     | true     | false       | ✅        | ❌         | - / FP |
+| R-008 | Reach Safety   | Hardness | false     | false     | false       | ✅        | ✅         | - / - |
+| R-009 | Reach Safety   | Hardness | true     | true     | false       | ✅         | ❌         | - / FP |
 
 
 

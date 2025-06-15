@@ -1,0 +1,8 @@
+{
+  "Topic": "Array increment",
+  "properties": "../properties/unreach-call.prp",
+  "expected_verdict": "true",
+  "cpachecker_verdict": "true",
+  "llm_verdict": "true",
+  "notes": ""
+}

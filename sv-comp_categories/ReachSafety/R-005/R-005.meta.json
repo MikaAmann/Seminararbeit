@@ -1,0 +1,8 @@
+{
+  "Topic": "Recursive GCD",
+  "properties": "../properties/unreach-call.prp",
+  "expected_verdict": "true",
+  "cpachecker_verdict": "true",
+  "llm_verdict": "false",
+  "notes": "LLM takes issue with 'redundant' checks but sees no critical errors"
+}

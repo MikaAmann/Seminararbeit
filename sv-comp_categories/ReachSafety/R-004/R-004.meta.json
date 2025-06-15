@@ -1,0 +1,8 @@
+{
+  "Topic": "Duplicates",
+  "properties": "../properties/unreach-call.prp",
+  "expected_verdict": "true",
+  "cpachecker_verdict": "false",
+  "llm_verdict": "true",
+  "notes": ""
+}
