@@ -40,6 +40,15 @@
 | R-009 | Reach Safety   | Hardness | true     | true     | false       | ✅         | ❌         | - / FP |
 
 
+| Ergebnisart                      | Punktewertung | LLM – Anzahl | LLM – Punkte | CPAchecker – Anzahl | CPAchecker – Punkte |
+|----------------------------------|----------------|----------------|----------------|------------------------|------------------------|
+| ✅ **FALSE** (correct)               | +1             |                |                |                        |                        |
+| ✅ **TRUE** (correct)                | +2             |                |                |                        |                        |
+| ❌ **FALSE** (incorrect)    | –16           |                |                |                        |                        |
+| ❌ **TRUE** (incorrect)     | –32           |                |                |                        |                        |
+| ⏱️ Timeout / Unknown             | 0              |  0              | 0              |                        | 0                      |
+|                                  |                |                |                |                        |                        |
+| **🔢 Gesamtpunktzahl**           |                |                | **0**          |                        | **0**                  |
 
 
 
