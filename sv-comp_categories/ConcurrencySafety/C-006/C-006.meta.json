@@ -1,0 +1,8 @@
+{
+  "Topic": "Datarace easy",
+  "properties": "../properties/no-data-race.prp",
+  "expected_verdict": "true",
+  "cpachecker_verdict": "true",
+  "llm_verdict": "false",
+  "notes": ""
+}

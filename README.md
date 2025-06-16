@@ -2,7 +2,6 @@
 
 | Test ID      | Category      | Topic |Expected Verdict | CPA Verdict | LLM Verdict | CPA Correct | LLM Correct | Error Type (CPA / LLM)|
 |--------------|---------------|-------|-----------------|-------------|-------------|-------------|-------------|-----------------------|
-| F-001   | Falsification || false    | true        | true        |   ❌          | ❌          | FN / FN   |
 | NO-001 | No Overflow   | Recursive Fibonnaci |true     | true     | true       | ✅          | ✅          | - / - |
 | NO-002 | No Overflow   | Even/Odd|false     | false     | false       | ✅          | ✅          | - / - |
 | NO-003 | No Overflow   | Ackermann function|true     | timeout     | true       | ❌           | ✅          | - / - |
@@ -13,6 +12,9 @@
 | C-002 | Concurrency Safety   | Read/Write Lock |true     | false     | false       | ❌             | ❌            | FP / FP |
 | C-003 | Concurrency Safety   | Thread Integer Overflow |false     | false     | false       | ✅           | ✅          | - / - |
 | C-004 | Concurrency Safety   | Petersons Algorithm |true     |true     | true       | ✅           | ✅          | - / - |
+| C-005 | Concurrency Safety   | Mutex  |true     |true     | false       |  ✅           | ❌          | - / FP |
+| C-006 | Concurrency Safety   | Datarace easy |true     |true     | false       |  ✅           | ❌          | - / FP |
+| C-007 | Concurrency Safety   | Datarace hard |true     |true     | true       | ✅           | ✅          | - / - |
 | M-001 | Memory Safety   | Array |false     |false     | false       | ✅           | ✅          | - / - |
 | M-002 | Memory Safety   | Array |true     |true     | false       | ✅           | ❌          | - / FP |
 | M-003 | Memory Safety   | Heap |true     |false     | false       | ❌          | ❌          | FP / FP |
@@ -38,21 +40,23 @@
 | R-007 | Reach Safety   | Hardness| true     | true     | false       | ✅        | ❌         | - / FP |
 | R-008 | Reach Safety   | Hardness | false     | false     | false       | ✅        | ✅         | - / - |
 | R-009 | Reach Safety   | Hardness | true     | true     | false       | ✅         | ❌         | - / FP |
-
-
-| Ergebnisart                      | Punktewertung | LLM – Anzahl | LLM – Punkte | CPAchecker – Anzahl | CPAchecker – Punkte |
-|----------------------------------|----------------|----------------|----------------|------------------------|------------------------|
-| ✅ **FALSE** (correct)               | +1             |                |                |                        |                        |
-| ✅ **TRUE** (correct)                | +2             |                |                |                        |                        |
-| ❌ **FALSE** (incorrect)    | –16           |                |                |                        |                        |
-| ❌ **TRUE** (incorrect)     | –32           |                |                |                        |                        |
-| ⏱️ Timeout / Unknown             | 0              |  0              | 0              |                        | 0                      |
-|                                  |                |                |                |                        |                        |
-| **🔢 Gesamtpunktzahl**           |                |                | **0**          |                        | **0**                  |
+| S-001 | Software Systems   | Linux Driver | true     | true     | unknown       | ✅         | (❌)         | - / - |
 
 
 
-| test002 | termination   | | true     | timeout     | false       | ✅          | ❌          | FN / FN |
+| Ergebnisart                      | Punktewertung | LLM – Anzahl    | LLM – Punkte   | CPAchecker – Anzahl    | CPAchecker – Punkte |
+|----------------------------------|---------------|----------------|----------------|------------------------|------------------------|
+| ✅ **FALSE** (correct)           | +1            |  15            |  15              |    13                   | 13                       |
+| ✅ **TRUE** (correct)            | +2            |   7            |  14              |   17                   |  34                     |
+| ❌ **FALSE** (incorrect)         | –16           |  15            | -240             |         4              |  -64                     |
+| ❌ **TRUE** (incorrect)          | –32           |  1             |  -32              |  1                     |  -32                      |
+| ⏱️ Timeout / Unknown / invalid    | 0             |  1             | 0              |    4                    | 0                      |
+|                                  |               |                |                |                        |                        |
+| **🔢 Gesamtpunktzahl**          |               |                | **-243**          |                        | **-49**                  |
+
+
+
+
 
 
 | Situation                 | Tool sagt „Fehler“   | Tool sagt „kein Fehler“ |

@@ -1,0 +1,8 @@
+{
+  "Topic": "Linux Driver",
+  "properties": "../properties/unreach-call.prp",
+  "expected_verdict": "true",
+  "cpachecker_verdict": "true",
+  "llm_verdict": "-",
+  "notes": "Code is 45k lines and thus too much for an LLM"
+}
