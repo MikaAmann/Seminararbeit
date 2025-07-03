@@ -1,8 +1,0 @@
-{
-  "Topic": "",
-  "properties": "../properties/termination.prp",
-  "expected_verdict": "false",
-  "cpachecker_verdict": "true",
-  "llm_verdict": "true",
-  "notes": "After SV-Comp 24 CPAchecker returns the correct verdict 'false'"
-}

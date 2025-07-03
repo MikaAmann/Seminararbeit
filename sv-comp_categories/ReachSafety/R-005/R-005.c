@@ -11,6 +11,7 @@ void reach_error() { __assert_fail("0", "gcd01-1.c", 3, "reach_error"); }
  * 
  */
 
+ 
 extern int __VERIFIER_nondet_int(void);
 
 // Compute the greatest common denominator using Euclid's algorithm
@@ -43,3 +44,6 @@ int main() {
         return 0;
     }
 }
+
+
+

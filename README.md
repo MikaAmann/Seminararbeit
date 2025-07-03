@@ -1,4 +1,81 @@
-# Seminararbeit
+# Seminararbeit, Mika Amann
+
+# 1. Projektübersicht
+
+# 2. Testmethodik
+
+
+
+Das Large Language Model wurde mit GPT-4o in der Version vom Juni 2024 evaluiert. Für die Befragung wurde ein einheitlicher Prompt formuliert, um maximale Vergleichbarkeit zwischen den einzelnen Testläufen zu gewährleisten. Der Prompt lautete:
+
+```text
+Analysiere den folgenden Code auf formale, semantische oder sicherheitsrelevante Fehler. Gib ein Verdict zurück:
+TRUE, wenn der Code fehlerfrei ist
+FALSE, wenn du einen oder mehrere Fehler erkennst
+UNKNOWN, wenn du dir unsicher bist oder nur spekulierst
+Halte deine Antwort exakt in diesem Format und bleibe bei der Begründung deinses Verdicts kurz.
+```
+
+Jeder Testfall wurde in einer eigenen, unabhängigen Sitzung ohne Vorwissen analysiert, um eine Beeinflussung durch vorherige Kontexte zu vermeiden. Die Ergebnisse wurden anschließend dokumentiert, in Tabellenform ausgewertet und mit den Resultaten von CPAchecker verglichen.
+
+Die CPAchecker-Ergebnisse stammen hierbei nicht aus eigenen Testläufen, sondern wurden aus den öffentlich dokumentierten  [Resultaten der SV-Competition 2025](https://sv-comp.sosy-lab.org/2025/results/results-verified/) übernommen.
+
+Zur Bewertung wurde das [Punkteschema der SV-Competition](https://sv-comp.sosy-lab.org/2025/rules.php) herangezogen, bei dem korrekte TRUE/FALSE-Ergebnisse positiv gewertet werden, während Fehlurteile stark negativ bestraft werden. UNKNOWN-Verdicts gingen neutral mit 0 Punkten ein. Die genaue Punkteverteilung ist der folgenden Tabelle zu entnehmen.
+
+
+ Ergebnisart                       | Punktewertung |
+|----------------------------------|---------------|
+| ✅ **FALSE** (correct)           | + 1           |
+| ✅ **TRUE** (correct)            | + 2            |                    
+| ❌ **FALSE** (incorrect)         | - 16           |                 
+| ❌ **TRUE** (incorrect)          | - 32           | 
+| ⏱️ Timeout / Unknown / invalid    | 0             |
+
+
+# 3. Testdaten
+
+Die in dieser Untersuchung eingesetzten Testprogramme stammen aus den öffentlich verfügbaren [Benchmarks der SV-COMP](https://gitlab.com/sosy-lab/benchmarking/sv-benchmarks), dem internationalen Wettbewerb für Softwareverifikation. Eine Auswahl dieser Benchmarks wurde unverändert übernommen und getestet.
+
+Die Testfälle decken folgende SV-COMP Kategorien ab:
+
+- **Reach Safety**
+
+* **Memory Safety**
+
+* **No Overflows**
+
+* **Termination**
+
+* **Concurrency Safety** 
+
+* **Software Systems**
+
+Eine Übersicht der Kategorien sowie der Unterkategorien kann außerdem der Datei
+[SV-Categories.pdf](SV-Categories.pdf) entnommen werden.
+
+Jede Kategorie enthält mehrere C-Testprogramme, die nach den SV-COMP-Standards mit einer .prp-Property-Datei spezifiziert sind. Ergänzend wurde für jeden Testfall eine .meta.json angelegt, in der zusätzliche Informationen wie erwartetes Ergebnis, Kategorie, Klassifikation des Fehlertyps und  Anmerkungen gespeichert sind.
+
+Die Ordnerstruktur ist wie folgt organisiert:
+
+```
+/sv-comp-categories/
+   ReachSafety/
+      test001/
+         test001.c
+         test001.meta.json
+   MemSafety/
+      ...
+   termination/
+      ...
+
+```
+
+Die Testbeispiele wurden gezielt so ausgewählt, dass sie inhaltlich prägnant sind und typische Schwächen wie auch Stärken der Tools sichtbar machen können. Entsprechend wurde in einigen Fällen gezielt nach Programmbeispielen mit bekannten Fehlern gefiltert, um besonders kritische Verhaltensweisen und Fehlerarten systematisch untersuchen zu können.
+
+
+# 4. Testergebnisse
+
+
 
 | Test ID      | Category      | Topic | Lines of Code |Expected Verdict | CPA Verdict | LLM Verdict | CPA Correct | LLM Correct | Error Type (CPA / LLM)|
 |--------------|---------------|-------|---------------|-----------------|-------------|-------------|-------------|-------------|-----------------------|
