@@ -34,7 +34,7 @@ Zur Bewertung wurde das [Punkteschema der SV-Competition](https://sv-comp.sosy-l
 
 # 3. Testdaten
 
-Die in dieser Untersuchung eingesetzten Testprogramme stammen aus den öffentlich verfügbaren [Benchmarks der SV-COMP](https://gitlab.com/sosy-lab/benchmarking/sv-benchmarks), dem internationalen Wettbewerb für Softwareverifikation. Eine Auswahl dieser Benchmarks wurde unverändert übernommen und getestet.
+Die in dieser Untersuchung eingesetzten Testprogramme stammen aus den öffentlich verfügbaren [Benchmarks der SV-Competition](https://gitlab.com/sosy-lab/benchmarking/sv-benchmarks). Eine Auswahl dieser Benchmarks wurde unverändert übernommen und getestet.
 
 Die Testfälle decken folgende SV-COMP Kategorien ab:
 
@@ -53,7 +53,7 @@ Die Testfälle decken folgende SV-COMP Kategorien ab:
 Eine Übersicht der Kategorien sowie der Unterkategorien kann außerdem der Datei
 [SV-Categories.pdf](SV-Categories.pdf) entnommen werden.
 
-Jede Kategorie enthält mehrere C-Testprogramme, die nach den SV-COMP-Standards mit einer .prp-Property-Datei spezifiziert sind. Ergänzend wurde für jeden Testfall eine .meta.json angelegt, in der zusätzliche Informationen wie erwartetes Ergebnis, Kategorie, Klassifikation des Fehlertyps und  Anmerkungen gespeichert sind.
+Jede Kategorie enthält mehrere C-Testprogramme, welche jeweils um eine .meta.json Datei ergänzt sind, in der zusätzliche Informationen wie die .prp-Property-Datei nach dem SV-COMP Standards, das erwartete Ergebnis, die tatsächlichen Ergebnisse beider Tools sowie Anmerkungen zum Testdurchlauf gespeichert sind.
 
 Die Ordnerstruktur ist wie folgt organisiert:
 
@@ -65,7 +65,7 @@ Die Ordnerstruktur ist wie folgt organisiert:
          test001.meta.json
    MemSafety/
       ...
-   termination/
+   Termination/
       ...
 
 ```
@@ -73,8 +73,25 @@ Die Ordnerstruktur ist wie folgt organisiert:
 Die Testbeispiele wurden gezielt so ausgewählt, dass sie inhaltlich prägnant sind und typische Schwächen wie auch Stärken der Tools sichtbar machen können. Entsprechend wurde in einigen Fällen gezielt nach Programmbeispielen mit bekannten Fehlern gefiltert, um besonders kritische Verhaltensweisen und Fehlerarten systematisch untersuchen zu können.
 
 
+
+
 # 4. Testergebnisse
 
+Die Testergebnisse werden in einer Tabelle zusammengefasst, die folgende Spalten umfasst:
+
+- **Test-ID:** Eindeutige Kennung des Testfalls
+- **Category:** Zugeordnete SV-COMP-Kategorie
+- **Topic:** Kurzbeschreibung des Inhalts
+- **Lines of Code:** Codezeilen im Testfall
+- **Expected Verdict:** Erwartetes korrektes Ergebnis (TRUE/FALSE)
+- **CPA Verdict:** Ergebnis von CPAchecker
+- **LLM Verdict:** Ergebnis des LLM
+- **CPA Correct:** Ob CPAchecker korrekt lag
+- **LLM Correct:** Ob das LLM korrekt lag
+- **Error Type:** Klassifizierung des Fehlertyps (False Positive/False Negative)
+
+\
+Die folgende Tabelle stellt die Ergebnisse der Tests dar.
 
 
 | Test ID      | Category      | Topic | Lines of Code |Expected Verdict | CPA Verdict | LLM Verdict | CPA Correct | LLM Correct | Error Type (CPA / LLM)|
@@ -121,20 +138,74 @@ Die Testbeispiele wurden gezielt so ausgewählt, dass sie inhaltlich prägnant s
 
 
 
+\
+Zur besseren Übersicht im folgenden zusätzlich ein Diagramm, welches die Verteilung richtiger und falscher Ergebnisse veranschaulicht:
+
+![Testergebnisse](./Testergebnisse.png)
+
+
+Wenn diese Ergebnisse mit dem Punkteschema der SV-COMP (siehe Kapitel 2.) ausgewertet werden kommen wir zu folgendem Ergebnis:
+
+
+
 | Ergebnisart                      | Punktewertung | LLM – Anzahl    | LLM – Punkte   | CPAchecker – Anzahl    | CPAchecker – Punkte |
 |----------------------------------|---------------|----------------|----------------|------------------------|------------------------|
 | ✅ **FALSE** (correct)           | +1            |  15            |  15              |    13                   | 13                       |
 | ✅ **TRUE** (correct)            | +2            |   7            |  14              |   17                   |  34                     |
-| ❌ **FALSE** (incorrect)         | –16           |  15            | -240             |         4              |  -64                     |
-| ❌ **TRUE** (incorrect)          | –32           |  1             |  -32              |  1                     |  -32                      |
-| ⏱️ Timeout / Unknown / invalid    | 0             |  1             | 0              |    4                    | 0                      |
+| ❌ **FALSE** (incorrect) / False Positive        | –16           |  15            | -240             |         4              |  -64                     |
+| ❌ **TRUE** (incorrect) / False Negative         | –32           |  1             |  -32              |  1                     |  -32                      |
+| Timeout / Unknown / invalid    | 0             |  1             | 0              |    4                    | 0                      |
 |                                  |               |                |                |                        |                        |
-| **🔢 Gesamtpunktzahl**          |               |                | **-243**          |                        | **-49**                  |
+| **Gesamtpunktzahl**          |               |                | **-243**          |                        | **-49**                  |
+**Fehlererkennungsrate** |||**~56,4%**||**~76,9%**|
+
+\
+Wichtig hierbei ist anzumerken, dass die ermittelten Punktzahlen ausschließlich dem internen Vergleich innerhalb dieser Untersuchung dienen und nicht die vollständige Leisungsfähigleit der getesteten Tools im produktiven Umfeld wiederspiegeln.
+So wurden, wie in Kapitel 3. angedeutet, stellenweise explizit vermehrt Fehlerfälle des Tools CPAchecker in die Testauswahl aufgenommen um auch kritischere Fälle zu analysieren. 
+
+Zum Vergleich: Bei der SV-COMP 2025 errreichte CPAchecker eine Punktzahl von **26.786** mit einer [Fehlerrate von ca. **0,03%**](https://sv-comp.sosy-lab.org/2025/results/results-verified/META_Overall_cpachecker.table.html#/).
+
+
+
+# 5.  Interpretation der Ergebnisse
+
+Im Rahmen dieser Untersuchung wurde überprüft, ob ein Large Language Model (ChatGPT, GPT-4o) mit einem etablierten Softwareverifikationstool (CPAchecker) hinsichtlich der Erkennung von Fehlern in C-Code konkurrieren kann. Die Auswertung der Punktzahlen, Fehlerquoten und Fehlertypen zeigt dabei ein klares Bild:
 
 
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+# Zusatz
 
 | Situation                 | Tool sagt „Fehler“   | Tool sagt „kein Fehler“ |
 | ------------------------- | -------------------- | ----------------------- |
