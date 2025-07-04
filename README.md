@@ -157,7 +157,12 @@ Wenn diese Ergebnisse mit dem Punkteschema der SV-COMP (siehe Kapitel 2.) ausgew
 | Timeout / Unknown / invalid    | 0             |  1             | 0              |    4                    | 0                      |
 |                                  |               |                |                |                        |                        |
 | **Gesamtpunktzahl**          |               |                | **-243**          |                        | **-49**                  |
-**Fehlererkennungsrate** |||**~56,4%**||**~76,9%**|
+|**Fehlererkennungsrate** |||**~56,4%**||**~76,9%**|
+
+
+||LLM|CPAchecker|
+|---|---|-|
+|**Fehlererkennungsrate** |**~56,4%**|**~76,9%**|
 
 \
 Wichtig hierbei ist anzumerken, dass die ermittelten Punktzahlen ausschließlich dem internen Vergleich innerhalb dieser Untersuchung dienen und nicht die vollständige Leisungsfähigleit der getesteten Tools im produktiven Umfeld wiederspiegeln.
