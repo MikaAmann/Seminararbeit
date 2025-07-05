@@ -54,8 +54,7 @@ Die Testfälle decken folgende SV-COMP Kategorien ab:
 
 * **Software Systems**
 
-Eine Übersicht der Kategorien sowie der Unterkategorien kann außerdem der Datei
-["SV-Categories.pdf"](Abbildungen und Dokumente\SV-Categories.pdf) entnommen werden.
+Eine Übersicht der Kategorien sowie der Unterkategorien kann außerdem der Datei ["SV-Categories.pdf"](Abbildungen-und-Dokumente\SV-Categories.pdf) entnommen werden.
 
 Jede Kategorie enthält mehrere C-Testprogramme, welche jeweils um eine .meta.json Datei ergänzt sind, in der zusätzliche Informationen wie die .prp-Property-Datei nach dem SV-COMP Standards, das erwartete Ergebnis, die tatsächlichen Ergebnisse beider Tools sowie Anmerkungen zum Testdurchlauf gespeichert sind.
 
