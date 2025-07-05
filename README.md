@@ -33,7 +33,7 @@ Zur Bewertung wurde das [Punkteschema der SV-Competition](https://sv-comp.sosy-l
 | ✅ **TRUE** (correct)            | + 2           |                    
 | ❌ **FALSE** (incorrect)         | - 16          |                 
 | ❌ **TRUE** (incorrect)          | - 32          | 
-| ⏱️ Timeout / Unknown / invalid   | 0             |
+|  Timeout / Unknown / invalid   | 0             |
 
 
 # 3. Testdaten
@@ -214,37 +214,3 @@ Insgesamt zeigt das Ergebnis aber, dass LLMs durchaus ein hilfreiches Werkzeug s
 
 * SV-COMP 2025 - 14th International Competition on Software Verification. Available at: https://sv-comp.sosy-lab.org/2025/rules.php (Accessed: 5 July 2025).
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-# Zusatz
-
-| Situation                 | Tool sagt „Fehler“   | Tool sagt „kein Fehler“ |
-| ------------------------- | -------------------- | ----------------------- |
-| **Fehler ist da**         | ✅ korrekt            | ❌ **False Negative**    |
-| **Kein Fehler vorhanden** | ❌ **False Positive** | ✅ korrekt               |

@@ -1,3 +1,5 @@
+//Dieses Codebeispiel wurde in der Präsentation der Semniararbeit verwendet
+
 extern unsigned __VERIFIER_nondet_uint();
 int main() {
   unsigned n =  __VERIFIER_nondet_uint();
