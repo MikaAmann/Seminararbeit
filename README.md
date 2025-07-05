@@ -188,7 +188,31 @@ Ein wichtiger Unterschied liegt außerdem darin, dass ChatGPT — im Gegensatz z
 
 Auffällig war ebenfalls, dass ChatGPT gelegentlich falsche Verdicts abgegeben hat, weil es Probleme mit den Imports der SV-Competition hatte oder Bibliotheksdefinitionen falsch interpretierte. Erst auf gezielte Nachfrage, etwa durch explizite Hinweise wie „Prüfe diesen Code explizit auf Overflow-Fehler“, konnte in manchen Fällen noch eine Korrektur erreicht werden. Diese Fälle wurden in den Anmerkungen der jeweiligen Testfälle vermerkt.
 
+# 6. Fazit
 
+Die durchgeführte Untersuchung zeigt eindeutig, dass ein Large Language Model wie ChatGPT aktuell nicht in der Lage ist, die Funktionalität eines klassischen, formalen Softwareverifikationstools wie CPAchecker vollständig zu ersetzen. Zwar konnte ChatGPT in rund 56 % der Testfälle das erwartete Verdict korrekt liefern und vereinzelt auch Fehler erkennen, die CPAchecker in seiner Auswertung nicht korrekt behandelt hat. Dennoch weist das Modell eine ausgeprägte Tendenz zu False Positives auf und liefert keine formale Absicherung für seine Ergebnisse.
+
+Gerade in sicherheitskritischen Anwendungsfeldern sind diese Schwächen problematisch, da dort eine mathematisch nachvollziehbare Garantie sinnvoll ist, wie sie CPAchecker mit seinen Witness-Beweisen liefert. Auch die Begrenzung durch das maximale Eingabefenster des Sprachmodells zeigt, dass komplexe Softwareprojekte für ChatGPT derzeit nicht vollständig überprüfbar sind.
+
+Insgesamt zeigt das Ergebnis aber, dass LLMs durchaus ein hilfreiches Werkzeug sein können, um den Verifikationsprozess zu unterstützen - etwa durch schnelle Voranalysen, Kommentierungen oder das Erkennen simpler Muster. Eine eigenständige Softwareverifikation nach formalen Maßstäben können sie nach heutigem Stand jedoch nicht leisten.
+
+# 7. Quellen
+
+* Baier, D. et al. (2025) ‘Software Verification with CPAchecker 3.0: Tutorial and User Guide’, in A. Platzer et al. (eds) Formal Methods. Cham: Springer Nature Switzerland, pp. 543–570. Available at: https://doi.org/10.1007/978-3-031-71177-0_30.
+
+* Beyer, D. (2024) ‘State of the Art in Software Verification and Witness Validation: SV-COMP 2024’, in B. Finkbeiner and L. Kovács (eds) Tools and Algorithms for the Construction and Analysis of Systems. Cham: Springer Nature Switzerland (Lecture Notes in Computer Science), pp. 299–329. Available at: https://doi.org/10.1007/978-3-031-57256-2_15.
+
+* ChatGPT ist da (2024). Available at: https://openai.com/de-DE/index/chatgpt/ (Accessed: 5 July 2025).
+
+* config · cpachecker-3.0 · SoSy-Lab / Software / CPAchecker · GitLab (2024) GitLab. Available at: https://gitlab.com/sosy-lab/software/cpachecker/-/tree/cpachecker-3.0/config (Accessed: 13 June 2025).
+
+* CPAchecker on the BenchCloud. Available at: https://vcloud.sosy-lab.org/cpachecker/webclient/run/example/default (Accessed: 15 June 2025).
+
+* META_Overall_cpachecker – BenchExec results. Available at: https://sv-comp.sosy-lab.org/2025/results/results-verified/META_Overall_cpachecker.table.html#/ (Accessed: 5 July 2025).
+
+* SoSy-Lab / Benchmarking / SV-Benchmarks · GitLab (2025) GitLab. Available at: https://gitlab.com/sosy-lab/benchmarking/sv-benchmarks (Accessed: 13 June 2025).
+
+* SV-COMP 2025 - 14th International Competition on Software Verification. Available at: https://sv-comp.sosy-lab.org/2025/rules.php (Accessed: 5 July 2025).
 
 
 
