@@ -38,7 +38,7 @@ Die in dieser Untersuchung eingesetzten Testprogramme stammen aus den öffentlic
 
 Die Testfälle decken folgende SV-COMP Kategorien ab:
 
-- **Reach Safety**
+* **Reach Safety**
 
 * **Memory Safety**
 
@@ -51,7 +51,7 @@ Die Testfälle decken folgende SV-COMP Kategorien ab:
 * **Software Systems**
 
 Eine Übersicht der Kategorien sowie der Unterkategorien kann außerdem der Datei
-[SV-Categories.pdf](SV-Categories.pdf) entnommen werden.
+["SV-Categories.pdf"](SV-Categories.pdf) entnommen werden.
 
 Jede Kategorie enthält mehrere C-Testprogramme, welche jeweils um eine .meta.json Datei ergänzt sind, in der zusätzliche Informationen wie die .prp-Property-Datei nach dem SV-COMP Standards, das erwartete Ergebnis, die tatsächlichen Ergebnisse beider Tools sowie Anmerkungen zum Testdurchlauf gespeichert sind.
 
@@ -176,9 +176,15 @@ Zum Vergleich: Bei der SV-COMP 2025 errreichte CPAchecker eine Punktzahl von **2
 
 Im Rahmen dieser Untersuchung wurde überprüft, ob ein Large Language Model (ChatGPT, GPT-4o) mit einem etablierten Softwareverifikationstool (CPAchecker) hinsichtlich der Erkennung von Fehlern in C-Code konkurrieren kann. Die Auswertung der Punktzahlen, Fehlerquoten und Fehlertypen zeigt dabei ein klares Bild:
 
+ChatGPT zeigt grundsätzlich das Potenzial, C-Code korrekt zu analysieren. In rund **56,4 %** konnte das LLM mehr als die Hälfte der Testbeispiele korrekt beurteilen. Bemerkenswert ist dabei, dass ChatGPT in einzelnen Fällen sogar korrekte Verdicts geliefert hat, in denen CPAchecker gescheitert ist (beispielsweise bei den Tests **NO-003** oder **T-003**).
 
+Allerdings fällt auf, dass ChatGPT gleichzeitig eine **sehr hohe Tendenz zu False Positives** besitzt, also korrekten Code fälschlich als fehlerhaft klassifiziert. Auffällig ist hierbei, dass die Anzahl der False Positives nahezu der Zahl der korrekt erkannten Fehler entspricht, was die praktische Einsetzbarkeit stark einschränkt.
 
+Darüber hinaus konnte ChatGPT die Kategorie **„SoftwareSystems“** nicht sinnvoll bearbeiten, da die dort enthaltenen Codebeispiele mit typischerweise 40.000–80.000 Zeilen die Eingabelänge des LLMs bei weitem übersteigen. Aus diesem Grund wurde diese Kategorie in den Tests nur durch ein einziges Beispiel repräsentiert.
 
+Ein wichtiger Unterschied liegt außerdem darin, dass ChatGPT — im Gegensatz zu CPAchecker — **keine formale Absicherung** seiner Ergebnisse liefert. Zwar erklärt das Modell, warum es zu einem bestimmten Verdict kommt, und nennt eventuell Gegenbeispiele, kann diese allerdings nicht verifizieren. Dies wird durch die insgesamt hohe Fehlerquote belegt.
+
+Auffällig war ebenfalls, dass ChatGPT gelegentlich falsche Verdicts abgegeben hat, weil es Probleme mit den Imports der SV-Competition hatte oder Bibliotheksdefinitionen falsch interpretierte. Erst auf gezielte Nachfrage, etwa durch explizite Hinweise wie „Prüfe diesen Code explizit auf Overflow-Fehler“, konnte in manchen Fällen noch eine Korrektur erreicht werden. Diese Fälle wurden in den Anmerkungen der jeweiligen Testfälle vermerkt.
 
 
 
