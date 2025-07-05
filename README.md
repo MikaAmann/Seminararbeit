@@ -2,6 +2,10 @@
 
 # 1. Projektübersicht
 
+In diesem Projekt wird ein Vergleich zwischen einem klassischen formalen Softwareverifikationstool [CPAchecker](https://cpachecker.sosy-lab.org/) und einem modernen Large Language Model ([ChatGPT](https://openai.com/index/chatgpt/)) durchgeführt. Ziel ist es, zu analysieren, inwiefern ein LLM bei der Überprüfung von C-Programmen ähnliche oder vergleichbare Ergebnisse liefern kann wie ein etablierter Verifikationsansatz.
+
+Die folgende Dokumentation beschreibt dazu die gewählte Testmethodik, die Auswahl und Strukturierung der Testfälle, sowie die Auswertung und Interpretation der erzielten Ergebnisse. Auf diese Weise soll ein fundierter Eindruck darüber entstehen, wie weit ein LLM derzeit tatsächlich als Unterstützung oder ggf. sogar als Alternative für klassische Verifikationstools in Frage kommen kann. 
+
 # 2. Testmethodik
 
 
@@ -26,10 +30,10 @@ Zur Bewertung wurde das [Punkteschema der SV-Competition](https://sv-comp.sosy-l
  Ergebnisart                       | Punktewertung |
 |----------------------------------|---------------|
 | ✅ **FALSE** (correct)           | + 1           |
-| ✅ **TRUE** (correct)            | + 2            |                    
-| ❌ **FALSE** (incorrect)         | - 16           |                 
-| ❌ **TRUE** (incorrect)          | - 32           | 
-| ⏱️ Timeout / Unknown / invalid    | 0             |
+| ✅ **TRUE** (correct)            | + 2           |                    
+| ❌ **FALSE** (incorrect)         | - 16          |                 
+| ❌ **TRUE** (incorrect)          | - 32          | 
+| ⏱️ Timeout / Unknown / invalid   | 0             |
 
 
 # 3. Testdaten
