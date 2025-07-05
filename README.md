@@ -144,7 +144,7 @@ Die folgende Tabelle stellt die Ergebnisse der Tests dar.
 \
 Zur besseren Übersicht im folgenden zusätzlich ein Diagramm, welches die Verteilung richtiger und falscher Ergebnisse veranschaulicht:
 
-![Testergebnisse](./Testergebnisse.png)
+![Testergebnisse](project_files/Testergebnisse.png)
 
 
 Wenn diese Ergebnisse mit dem Punkteschema der SV-COMP (siehe Kapitel 2.) ausgewertet werden kommen wir zu folgendem Ergebnis:
