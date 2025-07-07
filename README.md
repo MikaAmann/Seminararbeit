@@ -4,7 +4,7 @@
 
 In diesem Projekt wird ein Vergleich zwischen einem klassischen formalen Softwareverifikationstool ([CPAchecker](https://cpachecker.sosy-lab.org/)) und einem modernen Large Language Model ([ChatGPT](https://openai.com/index/chatgpt/)) durchgeführt. Ziel ist es, zu analysieren, inwiefern ein LLM bei der Überprüfung von C-Programmen vergleichbare Ergebnisse liefern kann wie ein etablierter Verifikationsansatz.
 
-Die folgende Dokumentation beschreibt dazu die gewählte Testmethodik, die Auswahl und Strukturierung der Testfälle, sowie die Auswertung und Interpretation der erzielten Ergebnisse. Auf diese Weise soll ein fundierter Eindruck darüber entstehen, wie weit ein LLM derzeit tatsächlich als Unterstützung oder ggf. sogar als Alternative für klassische Verifikationstools in Frage kommen kann. 
+Die folgende Dokumentation beschreibt dazu die gewählte Testmethodik, die Auswahl und Strukturierung der Testfälle, sowie die Auswertung und Interpretation der Testergebnisse. Auf diese Weise soll ein fundierter Eindruck darüber entstehen, wie weit ein LLM derzeit tatsächlich als Unterstützung oder ggf. sogar als Alternative für klassische Verifikationstools in Frage kommen kann. 
 
 # 2. Testmethodik
 
@@ -55,7 +55,7 @@ Die Testfälle decken folgende SV-COMP Kategorien ab:
 
 Eine Übersicht der Kategorien sowie der Unterkategorien kann außerdem der Datei ["SV-Categories.pdf"](project_files/SV-Categories.pdf) entnommen werden.
 
-Jede Kategorie enthält mehrere C-Testprogramme, welche jeweils um eine .meta.json Datei ergänzt sind, in der zusätzliche Informationen wie die .prp-Property-Datei nach dem SV-COMP Standards, das erwartete Ergebnis, die tatsächlichen Ergebnisse beider Tools sowie Anmerkungen zum Testdurchlauf gespeichert sind.
+Jede Kategorie enthält mehrere C-Testprogramme, welche jeweils um eine .meta.json Datei ergänzt sind, in der zusätzliche Informationen wie die zugehörige .prp-Property-Datei gemäß den SV-COMP-Standards, das erwartete Ergebnis, die tatsächlichen Ergebnisse beider Tools sowie Anmerkungen zum Testdurchlauf gespeichert sind.
 
 Die Ordnerstruktur ist wie folgt organisiert:
 
@@ -165,10 +165,10 @@ Wenn diese Ergebnisse mit dem Punkteschema der SV-COMP (siehe Kapitel 2.) ausgew
 
 
 \
-Wichtig hierbei ist anzumerken, dass die ermittelten Punktzahlen ausschließlich dem internen Vergleich innerhalb dieser Untersuchung dienen und nicht die vollständige Leisungsfähigleit der getesteten Tools im produktiven Umfeld wiederspiegeln.
+Wichtig hierbei ist anzumerken, dass die ermittelten Punktzahlen ausschließlich dem internen Vergleich innerhalb dieser Untersuchung dienen und nicht die vollständige Leisungsfähigkeit der getesteten Tools im produktiven Umfeld widerspiegeln.
 So wurden, wie in Kapitel 3. angedeutet, stellenweise explizit vermehrt Fehlerfälle des Tools CPAchecker in die Testauswahl aufgenommen um auch kritischere Fälle zu analysieren. 
 
-Zum Vergleich: Bei der SV-COMP 2025 errreichte CPAchecker eine Punktzahl von **26.786** mit einer [Fehlerrate von ca. **0,03%**](https://sv-comp.sosy-lab.org/2025/results/results-verified/META_Overall_cpachecker.table.html#/).
+Zum Vergleich: Bei der SV-COMP 2025 erreichte CPAchecker eine Punktzahl von **26.786** mit einer [Fehlerrate von ca. **0,03%**](https://sv-comp.sosy-lab.org/2025/results/results-verified/META_Overall_cpachecker.table.html#/).
 
 
 
@@ -176,23 +176,25 @@ Zum Vergleich: Bei der SV-COMP 2025 errreichte CPAchecker eine Punktzahl von **2
 
 Im Rahmen dieser Untersuchung sollte  überprüft werden, ob ein Large Language Model (ChatGPT, GPT-4o) mit einem etablierten Softwareverifikationstool (CPAchecker) hinsichtlich der Erkennung von Fehlern in C-Code konkurrieren kann. Die Auswertung der Punktzahlen, Fehlerquoten und Fehlertypen zeigt dabei ein klares Bild:
 
-ChatGPT zeigt grundsätzlich das Potenzial, C-Code korrekt zu analysieren. Mit einer Erkennungsrate von rund **56,4 %** konnte das LLM mehr als die Hälfte der Testbeispiele korrekt beurteilen. Bemerkenswert ist dabei, dass ChatGPT in einzelnen Fällen sogar korrekte Verdicts geliefert hat, in denen CPAchecker gescheitert ist (beispielsweise bei den Tests **NO-003** oder **T-003**).
+ChatGPT weist grundsätzlich das Potenzial zur korrekten Analyse von C-Code auf. Mit einer Erkennungsrate von rund **56,4 %** konnte das LLM mehr als die Hälfte der Testbeispiele korrekt beurteilen. Bemerkenswert ist dabei, dass ChatGPT in einzelnen Fällen sogar korrekte Verdicts geliefert hat, in denen CPAchecker gescheitert ist (beispielsweise bei den Tests **NO-003** oder **T-003**).
 
 Allerdings fällt auf, dass ChatGPT gleichzeitig eine **sehr hohe Tendenz zu False Positives** besitzt, also korrekten Code fälschlicherweise als fehlerhaft klassifiziert. Auffällig ist hierbei, dass die Anzahl der False Positives nahezu der Zahl der korrekt erkannten Fehler entspricht, was die praktische Einsetzbarkeit stark einschränkt.
 
-Darüber hinaus konnte ChatGPT die Kategorie **„SoftwareSystems“** nicht sinnvoll bearbeiten, da die dort enthaltenen Codebeispiele mit typischerweise 40.000–80.000 Zeilen die Eingabelänge des LLMs bei weitem übersteigen. Aus diesem Grund wurde diese Kategorie in den Tests nur durch ein einziges Beispiel repräsentiert.
+Darüber hinaus konnte ChatGPT die Kategorie **„SoftwareSystems“** nicht sinnvoll bearbeiten, da die betreffenden Codebeispiele typischerweise 40.000–80.000 Zeilen umfassen und somit die Eingabelänge des LLMs bei weitem übersteigen. Aus diesem Grund wurde diese Kategorie in den Tests nur durch ein einziges Beispiel repräsentiert.
 
 Ein wichtiger Unterschied liegt außerdem darin, dass ChatGPT, im Gegensatz zu CPAchecker, **keine formale Absicherung** seiner Ergebnisse liefert. Zwar erklärt das Modell, warum es zu einem bestimmten Verdict kommt, und nennt eventuell Gegenbeispiele, kann diese allerdings nicht verifizieren. Dies wird durch die insgesamt hohe Fehlerquote belegt.
 
-Auffällig war ebenfalls, dass ChatGPT gelegentlich falsche Verdicts abgegeben hat, weil es Probleme mit den Imports der SV-Competition hatte oder Bibliotheksdefinitionen falsch interpretierte. Erst auf gezielte Nachfrage, etwa durch explizite Hinweise wie „Prüfe diesen Code explizit auf Overflow-Fehler“, konnte in manchen Fällen noch eine Korrektur erreicht werden. Diese Fälle wurden in den Anmerkungen der jeweiligen Testfälle vermerkt (z.B **C-003**).
+Auffällig war ebenfalls, dass ChatGPT gelegentlich falsche Verdicts abgegeben hat, weil es Probleme Bibliotheksimporte oder Header-Dateien hatte. Erst auf gezielte Nachfrage, etwa durch explizite Hinweise wie „Prüfe diesen Code explizit auf Overflow-Fehler“, konnte in manchen Fällen noch eine Korrektur erreicht werden. Diese Fälle wurden in den Anmerkungen der jeweiligen Testfälle vermerkt (z.B **C-003**).
 
 # 6. Fazit
 
 Die durchgeführte Untersuchung zeigt eindeutig, dass ein Large Language Model wie ChatGPT aktuell nicht in der Lage ist, die Funktionalität eines klassischen, formalen Softwareverifikationstools wie CPAchecker vollständig zu ersetzen. Zwar konnte ChatGPT in rund 56 % der Testfälle das erwartete Verdict korrekt liefern und vereinzelt auch Fehler erkennen, die CPAchecker in seiner Auswertung nicht korrekt behandelt hat. Dennoch weist das Modell eine ausgeprägte Tendenz zu False Positives auf und liefert keine formale Absicherung für seine Ergebnisse.
 
-Gerade in sicherheitskritischen Anwendungsfeldern sind diese Schwächen problematisch, da dort eine mathematisch nachvollziehbare Garantie sinnvoll ist, wie sie CPAchecker mit seinen Witness-Beweisen liefert. Auch die Begrenzung durch das maximale Eingabefenster des Sprachmodells zeigt, dass komplexe Softwareprojekte für ChatGPT derzeit nicht vollständig überprüfbar sind.
+Gerade in sicherheitskritischen Anwendungsfeldern sind diese Schwächen problematisch, da dort eine mathematisch nachvollziehbare Garantie sinnvoll ist, wie sie CPAchecker mit seinen Witness-Beweisen liefert. Auch die Begrenzung durch das maximale Eingabefenster des Sprachmodells zeigt, dass sich komplexe Softwareprojekte mit ChatGPT derzeit nicht zuverlässig vollständig analysieren lassen.
 
-Insgesamt zeigt das Ergebnis aber, dass LLMs durchaus ein hilfreiches Werkzeug sein können, um den Verifikationsprozess, zum Beispiel durch schnelle Voranalysen, Kommentierungen oder das Erkennen simpler Muster, zu unterstützen. Eine eigenständige Softwareverifikation nach formalen Maßstäben können sie nach heutigem Stand jedoch nicht leisten.
+Insgesamt zeigt sich aber, dass sich LLMs bei der schnellen Voranalyse, der Kommentierung und insbesondere bei der Erkennung einfacher Muster im Code als hilfreiches Werkzeug erweisen können.
+
+Eine eigenständige Softwareverifikation nach formalen Maßstäben können sie nach heutigem Stand jedoch noch nicht leisten.
 
 # 7. Quellen
 
