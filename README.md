@@ -4,7 +4,7 @@
 
 In diesem Projekt wird ein Vergleich zwischen einem klassischen formalen Softwareverifikationstool ([CPAchecker](https://cpachecker.sosy-lab.org/)) und einem modernen Large Language Model ([ChatGPT](https://openai.com/index/chatgpt/)) durchgeführt. Ziel ist es, zu analysieren, inwiefern ein LLM bei der Überprüfung von C-Programmen vergleichbare Ergebnisse liefern kann wie ein etablierter Verifikationsansatz.
 
-Die folgende Dokumentation beschreibt dazu die gewählte Testmethodik, die Auswahl und Strukturierung der Testfälle, sowie die Auswertung und Interpretation der Testergebnisse. Auf diese Weise soll ein fundierter Eindruck darüber entstehen, wie weit ein LLM derzeit tatsächlich als Unterstützung oder ggf. sogar als Alternative für klassische Verifikationstools in Frage kommen kann. 
+Die folgende Dokumentation beschreibt dazu die gewählte Testmethodik, die Auswahl und Strukturierung der Testfälle, sowie die Auswertung und Interpretation der Testergebnisse. Auf diese Weise soll ein fundierter Eindruck darüber entstehen, inwieweit ein LLM heute bereits als Unterstützung oder sogar als Alternative für klassische Verifikationstools in Frage kommen kann. 
 
 # 2. Testmethodik
 
@@ -16,7 +16,7 @@ Analysiere den folgenden Code auf formale, semantische oder sicherheitsrelevante
 TRUE, wenn der Code fehlerfrei ist
 FALSE, wenn du einen oder mehrere Fehler erkennst
 UNKNOWN, wenn du dir unsicher bist oder nur spekulierst
-Halte deine Antwort exakt in diesem Format und bleibe bei der Begründung deinses Verdicts kurz.
+Halte deine Antwort exakt in diesem Format und bleibe bei der Begründung deines Verdicts kurz.
 ```
 
 Jeder Testfall wurde in einer eigenen, unabhängigen Sitzung ohne Vorwissen analysiert, um eine Beeinflussung durch vorherige Kontexte zu vermeiden. Die Ergebnisse wurden anschließend dokumentiert, in Tabellenform ausgewertet und mit den Resultaten von CPAchecker verglichen.
@@ -93,7 +93,7 @@ Die Testergebnisse werden in einer Tabelle zusammengefasst, die folgende Spalten
 - **Error Type:** Klassifizierung des Fehlertyps (False Positive/False Negative)
 
 \
-Die folgende Tabelle stellt die Ergebnisse der Tests dar.
+Die folgende Tabelle fasst die Testergebnisse zusammen.
 
 
 | Test ID      | Category      | Topic | Lines of Code |Expected Verdict | CPA Verdict | LLM Verdict | CPA Correct | LLM Correct | Error Type (CPA / LLM)|
@@ -165,7 +165,7 @@ Wenn diese Ergebnisse mit dem Punkteschema der SV-COMP (siehe Kapitel 2.) ausgew
 
 
 \
-Wichtig hierbei ist anzumerken, dass die ermittelten Punktzahlen ausschließlich dem internen Vergleich innerhalb dieser Untersuchung dienen und nicht die vollständige Leisungsfähigkeit der getesteten Tools im produktiven Umfeld widerspiegeln.
+Wichtig hierbei ist anzumerken, dass die ermittelten Punktzahlen ausschließlich dem internen Vergleich innerhalb dieser Untersuchung dienen und nicht die vollständige Leistungsfähigkeit der getesteten Tools im produktiven Umfeld widerspiegeln.
 So wurden, wie in Kapitel 3. angedeutet, stellenweise explizit vermehrt Fehlerfälle des Tools CPAchecker in die Testauswahl aufgenommen um auch kritischere Fälle zu analysieren. 
 
 Zum Vergleich: Bei der SV-COMP 2025 erreichte CPAchecker eine Punktzahl von **26.786** mit einer [Fehlerrate von ca. **0,03%**](https://sv-comp.sosy-lab.org/2025/results/results-verified/META_Overall_cpachecker.table.html#/).
